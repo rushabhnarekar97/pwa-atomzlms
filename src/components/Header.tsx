@@ -14,7 +14,7 @@ import { Logo } from './Logo';
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-10 w-full border-b bg-card/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-10 w-full border-b bg-card/95">
       <div className="container mx-auto flex h-14 items-center justify-between px-4">
         <Logo />
         <div className="flex items-center gap-4">
