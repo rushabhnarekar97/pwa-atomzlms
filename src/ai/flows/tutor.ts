@@ -3,17 +3,12 @@
  * @fileOverview An AI tutor that can answer questions about a specific course chapter.
  *
  * - askTutor - A function that takes a question and chapter context and returns an answer.
- * - AskTutorInput - The input type for the askTutor function.
  */
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
+import { AskTutorInput, AskTutorInputSchema } from '@/ai/schemas/tutor';
 
-export const AskTutorInputSchema = z.object({
-  chapterContext: z.string().describe('The content of the course chapter the user is asking about.'),
-  question: z.string().describe('The user\'s question about the chapter content.'),
-});
-export type AskTutorInput = z.infer<typeof AskTutorInputSchema>;
 
 export async function askTutor(input: AskTutorInput): Promise<string> {
     const {output} = await askTutorFlow(input);
