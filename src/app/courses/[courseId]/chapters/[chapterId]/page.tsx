@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { courses } from '@/lib/data';
-import { BrainCircuit, ChevronLeft } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 
 export async function generateStaticParams() {
   return courses.flatMap(course => 
@@ -59,14 +59,6 @@ export default function ChapterPage({ params }: { params: { courseId: string; ch
                 <p>{chapter.content}</p>
             </div>
         )}
-      </div>
-      <div className="sticky bottom-0 border-t bg-background/95 p-4">
-        <Button asChild className="w-full">
-            <Link href={`/courses/${params.courseId}/chapters/${params.chapterId}/tutor`}>
-                <BrainCircuit className="mr-2 h-4 w-4" />
-                Ask AI Tutor
-            </Link>
-        </Button>
       </div>
     </div>
   );
