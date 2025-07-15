@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
   title: 'ATOMZLMS',
@@ -28,7 +29,7 @@ export default function RootLayout({
             <div className="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
             <div className="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
             <div className="rounded-[2rem] overflow-hidden w-full h-full bg-background">
-                <main className="h-full w-full overflow-y-auto">
+                <main className={cn("h-full w-full overflow-y-auto no-scrollbar")}>
                     {children}
                 </main>
                 <Toaster />
