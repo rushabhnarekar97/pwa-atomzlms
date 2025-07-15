@@ -1,14 +1,13 @@
 import type {NextConfig} from 'next';
 
+const isProd = process.env.NODE_ENV === 'production';
 const repo = 'pwa-atomzlms';
-const assetPrefix = `/${repo}/`;
-const basePath = `/${repo}`;
 
 const nextConfig: NextConfig = {
-  /* config options here */
   output: 'export',
-  assetPrefix: assetPrefix,
-  basePath: basePath,
+  // Configure basePath and assetPrefix for GitHub Pages
+  basePath: isProd ? `/${repo}` : '',
+  assetPrefix: isProd ? `/${repo}/` : '',
   typescript: {
     ignoreBuildErrors: true,
   },
