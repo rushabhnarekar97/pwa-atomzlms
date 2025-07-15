@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { courses } from '@/lib/data';
 import { Badge } from '@/components/ui/badge';
 import { Header } from '@/components/Header';
+import { BookOpen } from 'lucide-react';
 
 export default function DashboardPage() {
   return (
@@ -15,10 +16,9 @@ export default function DashboardPage() {
         
         <div className="grid grid-cols-1 gap-4">
           {courses.map((course) => (
-            <Card key={course.id} className="flex h-full flex-col overflow-hidden transition-all duration-300 ease-in-out hover:shadow-lg">
-               <Link href={`/courses/${course.id}`} className="flex flex-col h-full">
-                <CardHeader className="p-0">
-                  <div className="relative h-32 w-full">
+            <Link href={`/courses/${course.id}`} key={course.id} className="block">
+              <Card className="flex h-full flex-row overflow-hidden transition-all duration-300 ease-in-out hover:shadow-lg">
+                  <div className="relative h-28 w-28 flex-shrink-0">
                     <Image
                       src={course.image}
                       alt={course.title}
@@ -32,16 +32,18 @@ export default function DashboardPage() {
                       }
                     />
                   </div>
-                </CardHeader>
-                <div className="flex flex-1 flex-col p-4">
-                  <CardTitle className="mb-1 text-base font-bold">{course.title}</CardTitle>
-                  <CardDescription className="flex-grow text-xs leading-relaxed">{course.description}</CardDescription>
+                <div className="flex flex-1 flex-col p-3">
+                  <CardTitle className="mb-1 text-sm font-bold leading-tight">{course.title}</CardTitle>
+                  <CardDescription className="flex-grow text-xs leading-relaxed line-clamp-2">{course.description}</CardDescription>
+                  <CardFooter className="p-0 pt-2">
+                   <Badge variant="secondary" className="flex items-center gap-1 text-xs">
+                     <BookOpen className="h-3 w-3" />
+                     {course.modules.length} Modules
+                    </Badge>
+                  </CardFooter>
                 </div>
-                <CardFooter className="p-4 pt-0">
-                   <Badge variant="secondary">{course.modules.length} Modules</Badge>
-                </CardFooter>
-               </Link>
-            </Card>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>
