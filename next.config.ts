@@ -31,6 +31,29 @@ const nextConfig: NextConfig = {
       }
     ],
   },
+   webpack: (config, { isServer }) => {
+    if (!isServer) {
+        config.resolve.fallback = {
+            ...config.resolve.fallback,
+            'fs': false,
+            'net': false,
+            'tls': false,
+            'child_process': false,
+        };
+    }
+    // TOP-LEVEL AWAIT
+    // https://webpack.js.org/configuration/experiments/
+    config.experiments = {
+        ...config.experiments,
+        topLevelAwait: true,
+    };
+    config.externals.push(
+        'pino-pretty',
+        'lokijs',
+        'encoding'
+    );
+    return config;
+  },
 };
 
 export default nextConfig;
