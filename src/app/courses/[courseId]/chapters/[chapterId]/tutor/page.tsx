@@ -11,6 +11,10 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
 
+// We can't generate static params on a client component,
+// but since the parent page is statically generated, this page will be too.
+// The presence of generateStaticParams in the parent route segment handles this.
+
 type Message = {
     role: 'user' | 'assistant';
     content: string;
@@ -63,7 +67,7 @@ export default function TutorPage() {
     <div className="flex h-full flex-col">
       <header className="sticky top-0 z-10 flex h-14 items-center justify-between border-b bg-background/95 px-4">
         <Button variant="ghost" size="icon" asChild>
-          <Link href={`/courses/${courseId}/chapters/${chapterId}`}>
+          <Link href={`/courses/${courseId as string}/chapters/${chapterId as string}`}>
             <ArrowLeft className="h-4 w-4" />
           </Link>
         </Button>

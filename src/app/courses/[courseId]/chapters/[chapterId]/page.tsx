@@ -4,6 +4,17 @@ import { Button } from '@/components/ui/button';
 import { courses } from '@/lib/data';
 import { BrainCircuit, ChevronLeft } from 'lucide-react';
 
+export async function generateStaticParams() {
+  return courses.flatMap(course => 
+    course.modules.flatMap(module => 
+      module.chapters.map(chapter => ({
+        courseId: course.id,
+        chapterId: chapter.id,
+      }))
+    )
+  );
+}
+
 export default function ChapterPage({ params }: { params: { courseId: string; chapterId: string } }) {
   const course = courses.find((c) => c.id === params.courseId);
   if (!course) notFound();

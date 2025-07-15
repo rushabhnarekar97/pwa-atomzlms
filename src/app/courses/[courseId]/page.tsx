@@ -13,6 +13,12 @@ import { Header } from '@/components/Header';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 
+export async function generateStaticParams() {
+  return courses.map((course) => ({
+    courseId: course.id,
+  }));
+}
+
 export default function CoursePage({ params }: { params: { courseId: string } }) {
   const course = courses.find((c) => c.id === params.courseId);
 
