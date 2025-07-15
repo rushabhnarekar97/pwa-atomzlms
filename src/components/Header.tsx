@@ -13,6 +13,8 @@ import { LogOut, User } from 'lucide-react';
 import { Logo } from './Logo';
 import { ThemeToggleButton } from './ThemeToggleButton';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export function Header() {
   return (
     <header className="sticky top-0 z-10 w-full border-b bg-background/95">
