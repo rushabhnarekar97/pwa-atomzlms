@@ -15,7 +15,7 @@ import { ThemeToggleButton } from './ThemeToggleButton';
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-10 w-full border-b bg-background/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-10 w-full border-b bg-background/95">
       <div className="flex h-14 items-center justify-between px-4">
         <Link href="/dashboard">
           <Logo />

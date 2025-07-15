@@ -83,7 +83,7 @@ export const courses: Course[] = [
     id: 'tailwind-css-design',
     title: 'Responsive Design with Tailwind',
     description: 'Master responsive web design using Tailwind CSS utility classes.',
-    image: 'https://images.unsplash.com/photo-1517694712202-1428bc38aa5a?q=80&w=870&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=870&auto=format&fit=crop',
     modules: [
       {
         id: 'm1',

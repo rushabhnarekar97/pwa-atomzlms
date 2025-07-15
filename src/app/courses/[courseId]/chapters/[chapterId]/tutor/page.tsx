@@ -61,7 +61,7 @@ export default function TutorPage() {
 
   return (
     <div className="flex h-full flex-col">
-      <header className="sticky top-0 z-10 flex h-14 items-center justify-between border-b bg-background/95 px-4 backdrop-blur-sm">
+      <header className="sticky top-0 z-10 flex h-14 items-center justify-between border-b bg-background/95 px-4">
         <Button variant="ghost" size="icon" asChild>
           <Link href={`/courses/${courseId}/chapters/${chapterId}`}>
             <ArrowLeft className="h-4 w-4" />

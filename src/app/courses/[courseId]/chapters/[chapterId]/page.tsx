@@ -49,7 +49,7 @@ export default function ChapterPage({ params }: { params: { courseId: string; ch
             </div>
         )}
       </div>
-      <div className="sticky bottom-0 border-t bg-background/95 p-4 backdrop-blur-sm">
+      <div className="sticky bottom-0 border-t bg-background/95 p-4">
         <Button asChild className="w-full">
             <Link href={`/courses/${params.courseId}/chapters/${params.chapterId}/tutor`}>
                 <BrainCircuit className="mr-2 h-4 w-4" />
