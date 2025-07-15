@@ -1,4 +1,3 @@
-import { Header } from '@/components/Header';
 
 export default function DashboardLayout({
   children,
@@ -6,9 +5,9 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen w-full flex-col bg-background">
-      <Header />
-      <main className="flex-1">{children}</main>
+    <div className="flex min-h-full w-full flex-col bg-background">
+      {/* The Header is now part of the scrollable content within each page */}
+      {children}
     </div>
   );
 }

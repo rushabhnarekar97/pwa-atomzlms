@@ -28,10 +28,10 @@ export default function RootLayout({
             <div className="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
             <div className="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
             <div className="rounded-[2rem] overflow-hidden w-full h-full bg-background">
-                <div className="h-full w-full overflow-y-auto">
+                <main className="h-full w-full overflow-y-auto">
                     {children}
-                    <Toaster />
-                </div>
+                </main>
+                <Toaster />
             </div>
         </div>
       </body>
