@@ -2,8 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { courses } from '@/lib/data';
-import { ChevronLeft } from 'lucide-react';
-import { Header } from '@/components/Header';
+import { BrainCircuit, ChevronLeft } from 'lucide-react';
 
 export default function ChapterPage({ params }: { params: { courseId: string; chapterId: string } }) {
   const course = courses.find((c) => c.id === params.courseId);
@@ -16,43 +15,48 @@ export default function ChapterPage({ params }: { params: { courseId: string; ch
   if (!chapter) notFound();
 
   return (
-    <>
-    <Header />
     <div className="flex min-h-full flex-col">
-      <div className="container mx-auto max-w-5xl flex-1 px-4 py-8">
-        <div className="mb-4">
-            <Button variant="ghost" asChild className="-ml-2">
-                <Link href={`/courses/${params.courseId}`}>
-                <ChevronLeft className="mr-2 h-4 w-4" />
-                Back to Course
-                </Link>
-            </Button>
+      <div className="flex-1">
+        <div className="p-4">
+          <div className="mb-4">
+              <Button variant="ghost" asChild className="-ml-2">
+                  <Link href={`/courses/${params.courseId}`}>
+                  <ChevronLeft className="mr-2 h-4 w-4" />
+                  Back to Course
+                  </Link>
+              </Button>
+          </div>
+
+          <div className="mb-4">
+              <p className="text-xs font-semibold uppercase tracking-wider text-primary">{course.title}</p>
+              <h1 className="text-xl font-bold tracking-tight">{chapter.title}</h1>
+          </div>
         </div>
 
-        <div className="bg-card">
-            <div className="mb-4">
-                <p className="text-xs font-semibold uppercase tracking-wider text-primary">{course.title}</p>
-                <h1 className="text-xl font-bold tracking-tight">{chapter.title}</h1>
+        {chapter.type === 'video' ? (
+            <div className="aspect-video">
+            <iframe
+                className="h-full w-full"
+                src={chapter.content}
+                title={chapter.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+            ></iframe>
             </div>
-
-            {chapter.type === 'video' ? (
-                <div className="aspect-video overflow-hidden rounded-lg border">
-                <iframe
-                    className="h-full w-full"
-                    src={chapter.content}
-                    title={chapter.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                ></iframe>
-                </div>
-            ) : (
-                <div className="prose prose-sm max-w-none dark:prose-invert">
-                    <p>{chapter.content}</p>
-                </div>
-            )}
-        </div>
+        ) : (
+            <div className="prose prose-sm max-w-none prose-invert p-4">
+                <p>{chapter.content}</p>
+            </div>
+        )}
+      </div>
+      <div className="sticky bottom-0 border-t bg-background/95 p-4 backdrop-blur-sm">
+        <Button asChild className="w-full">
+            <Link href={`/courses/${params.courseId}/chapters/${params.chapterId}/tutor`}>
+                <BrainCircuit className="mr-2 h-4 w-4" />
+                Ask AI Tutor
+            </Link>
+        </Button>
       </div>
     </div>
-    </>
   );
 }

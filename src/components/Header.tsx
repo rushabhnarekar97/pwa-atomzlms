@@ -14,9 +14,11 @@ import { Logo } from './Logo';
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-10 w-full border-b bg-card/95">
-      <div className="container mx-auto flex h-14 items-center justify-between px-4">
-        <Logo />
+    <header className="sticky top-0 z-10 w-full border-b bg-background/95 backdrop-blur-sm">
+      <div className="flex h-14 items-center justify-between px-4">
+        <Link href="/dashboard">
+          <Logo />
+        </Link>
         <div className="flex items-center gap-4">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
