@@ -7,7 +7,7 @@ export interface Chapter {
 }
 
 export interface Module {
-  id: string;
+  id:string;
   title: string;
   chapters: Chapter[];
 }
@@ -25,7 +25,7 @@ export const courses: Course[] = [
     id: 'nextjs-fundamentals',
     title: 'Next.js Fundamentals',
     description: 'Learn the basics of Next.js, from routing to data fetching.',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=870&auto=format&fit=crop',
     modules: [
       {
         id: 'm1',
@@ -50,7 +50,7 @@ export const courses: Course[] = [
     id: 'react-mastery',
     title: 'React Mastery',
     description: 'Become a pro in React with hooks, state management, and more.',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=870&auto=format&fit=crop',
     modules: [
       {
         id: 'm1',
@@ -66,7 +66,7 @@ export const courses: Course[] = [
     id: 'tailwind-css-design',
     title: 'Responsive Design with Tailwind',
     description: 'Master responsive web design using Tailwind CSS utility classes.',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://images.unsplash.com/photo-1617042375876-a97e0566d302?q=80&w=870&auto=format&fit=crop',
     modules: [
       {
         id: 'm1',
@@ -82,7 +82,7 @@ export const courses: Course[] = [
     id: 'pwa-essentials',
     title: 'PWA Essentials',
     description: 'Build Progressive Web Apps that are fast, reliable, and engaging.',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?q=80&w=870&auto=format&fit=crop',
     modules: [
       {
         id: 'm1',
