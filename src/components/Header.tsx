@@ -14,14 +14,14 @@ import { Logo } from './Logo';
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-10 w-full border-b bg-card shadow-sm">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+    <header className="sticky top-0 z-10 w-full border-b bg-card/95 backdrop-blur-sm">
+      <div className="container mx-auto flex h-14 items-center justify-between px-4">
         <Logo />
         <div className="flex items-center gap-4">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-9 w-9 rounded-full">
-                <Avatar className="h-9 w-9">
+              <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                <Avatar className="h-8 w-8">
                   <AvatarImage src="https://placehold.co/40x40.png" alt="@user" data-ai-hint="person avatar" />
                   <AvatarFallback>U</AvatarFallback>
                 </Avatar>

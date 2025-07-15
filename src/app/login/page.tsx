@@ -7,8 +7,8 @@ import { Logo } from '@/components/Logo';
 
 export default function LoginPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
-      <Card className="w-full max-w-sm">
+    <main className="flex min-h-full flex-col items-center justify-center bg-background p-4">
+      <Card className="w-full max-w-sm border-0 shadow-none sm:border sm:shadow-sm">
         <CardHeader className="items-center text-center">
           <Logo className="mb-4" />
           <CardTitle>Welcome Back</CardTitle>

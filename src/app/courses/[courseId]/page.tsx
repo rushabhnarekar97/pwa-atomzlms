@@ -33,8 +33,8 @@ export default function CoursePage({ params }: { params: { courseId: string } })
           </Link>
         </Button>
 
-        <h1 className="mb-2 text-2xl font-bold">{course.title}</h1>
-        <p className="mb-6 text-base text-muted-foreground">{course.description}</p>
+        <h1 className="mb-2 text-xl font-bold">{course.title}</h1>
+        <p className="mb-4 text-sm text-muted-foreground">{course.description}</p>
         
         <div className="mb-6 grid grid-cols-2 gap-4">
           <Card>
@@ -43,7 +43,7 @@ export default function CoursePage({ params }: { params: { courseId: string } })
                   <BookOpen className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent className="p-3 pt-0">
-                  <div className="text-xl font-bold">{totalChapters}</div>
+                  <div className="text-lg font-bold">{totalChapters}</div>
               </CardContent>
           </Card>
           <Card>
@@ -52,7 +52,7 @@ export default function CoursePage({ params }: { params: { courseId: string } })
                   <Clock className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent className="p-3 pt-0">
-                  <div className="text-xl font-bold">{totalDuration} min</div>
+                  <div className="text-lg font-bold">{totalDuration} min</div>
               </CardContent>
           </Card>
         </div>
@@ -60,7 +60,7 @@ export default function CoursePage({ params }: { params: { courseId: string } })
         <Accordion type="single" collapsible className="w-full" defaultValue={`item-${course.modules[0]?.id}`}>
           {course.modules.map((module) => (
             <AccordionItem value={`item-${module.id}`} key={module.id} className="rounded-lg mb-2 border bg-card px-3">
-              <AccordionTrigger className="py-3 text-base font-semibold hover:no-underline">
+              <AccordionTrigger className="py-3 text-sm font-semibold hover:no-underline">
                 {module.title}
               </AccordionTrigger>
               <AccordionContent className="pb-0">
@@ -71,11 +71,11 @@ export default function CoursePage({ params }: { params: { courseId: string } })
                         <div className="flex items-center justify-between p-2">
                           <div className="flex items-center gap-3">
                             {chapter.type === 'video' ? (
-                              <Video className="h-5 w-5 flex-shrink-0 text-primary" />
+                              <Video className="h-4 w-4 flex-shrink-0 text-primary" />
                             ) : (
-                              <FileText className="h-5 w-5 flex-shrink-0 text-primary" />
+                              <FileText className="h-4 w-4 flex-shrink-0 text-primary" />
                             )}
-                            <span className="text-sm font-medium">{chapter.title}</span>
+                            <span className="text-xs font-medium">{chapter.title}</span>
                           </div>
                           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                               <Clock className="h-3 w-3" />

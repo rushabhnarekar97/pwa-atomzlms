@@ -32,7 +32,7 @@ export default function ChapterPage({ params }: { params: { courseId: string; ch
         <div className="bg-card">
             <div className="mb-4">
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary">{course.title}</p>
-                <h1 className="text-2xl font-bold tracking-tight">{chapter.title}</h1>
+                <h1 className="text-xl font-bold tracking-tight">{chapter.title}</h1>
             </div>
 
             {chapter.type === 'video' ? (
