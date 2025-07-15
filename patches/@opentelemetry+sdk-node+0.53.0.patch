@@ -1,0 +1,30 @@
+diff --git a/node_modules/@opentelemetry/sdk-node/build/src/NodeSDK.js b/node_modules/@opentelemetry/sdk-node/build/src/NodeSDK.js
+index 9225785..9324b17 100644
+--- a/node_modules/@opentelemetry/sdk-node/build/src/NodeSDK.js
++++ b/node_modules/@opentelemetry/sdk-node/build/src/NodeSDK.js
+@@ -326,7 +326,9 @@
+             this._serviceName,
+         });
+         const jaegerExporter = new ((_a = this._config.traceExporter) !== null && _a !== void 0 ? _a : require('@opentelemetry/exporter-jaeger').JaegerExporter)(exporterConfig);
+-        this._tracerProvider.addSpanProcessor(new tracing_1.BatchSpanProcessor(jaegerExporter));
++        // FIRESTORE-ONLY: We're not using Jaeger.
++        // this._tracerProvider.addSpanProcessor(new tracing_1.BatchSpanProcessor(jaegerExporter));
++        return;
+     }
+     _initMetrics() {
+         var _a, _b, _c, _d;
+diff --git a/node_modules/@opentelemetry/sdk-node/build/src/sdk.js b/node_modules/@opentelemetry/sdk-node/build/src/sdk.js
+index 7a3c77d..a5a51a8 100644
+--- a/node_modules/@opentelemetry/sdk-node/build/src/sdk.js
++++ b/node_modules/@opentelemetry/sdk-node/build/src/sdk.js
+@@ -107,7 +107,9 @@
+             serviceName: this._serviceName,
+         });
+         const jaegerExporter = new ((_a = this._config.traceExporter) !== null && _a !== void 0 ? _a : require('@opentelemetry/exporter-jaeger').JaegerExporter)(exporterConfig);
+-        this._tracerProvider.addSpanProcessor(new tracing_1.BatchSpanProcessor(jaegerExporter));
++        // FIRESTORE-ONLY: We're not using Jaeger.
++        // this._tracerProvider.addSpanProcessor(new tracing_1.BatchSpanProcessor(jaegerExporter));
++        return;
+     }
+     _initMetrics() {
+         var _a, _b;
