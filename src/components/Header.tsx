@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { LogOut, User } from 'lucide-react';
 import { Logo } from './Logo';
+import { ThemeToggleButton } from './ThemeToggleButton';
 
 export function Header() {
   return (
@@ -19,7 +20,8 @@ export function Header() {
         <Link href="/dashboard">
           <Logo />
         </Link>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
+          <ThemeToggleButton />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-8 w-8 rounded-full">
