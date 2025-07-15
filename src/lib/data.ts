@@ -1,3 +1,4 @@
+
 export interface Chapter {
   id: string;
   title: string;
@@ -66,7 +67,7 @@ export const courses: Course[] = [
     id: 'tailwind-css-design',
     title: 'Responsive Design with Tailwind',
     description: 'Master responsive web design using Tailwind CSS utility classes.',
-    image: 'https://images.unsplash.com/photo-1617042375876-a97e0566d302?q=80&w=870&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1517694712202-1428bc38aa5a?q=80&w=870&auto=format&fit=crop',
     modules: [
       {
         id: 'm1',
