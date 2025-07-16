@@ -27,7 +27,7 @@ export function BottomBar() {
   const pathname = usePathname();
 
   return (
-    <div className="absolute bottom-0 left-0 z-20 h-16 w-full border-t bg-background/95 backdrop-blur-sm">
+    <div className="absolute bottom-0 left-0 z-20 h-16 w-full overflow-hidden rounded-b-[2rem] border-t bg-background/95">
       <nav className="grid h-full grid-cols-3">
         {routes.map((route) => (
           <Link
