@@ -5,9 +5,8 @@ const repo = 'pwa-atomzlms';
 
 const nextConfig: NextConfig = {
   output: 'export',
-  // Configure basePath and assetPrefix for GitHub Pages
-  basePath: isProd ? `/${repo}` : '',
-  assetPrefix: isProd ? `/${repo}/` : '',
+  basePath: '/pwa-atomzlms',
+  assetPrefix: '/pwa-atomzlms/',
   typescript: {
     ignoreBuildErrors: true,
   },
