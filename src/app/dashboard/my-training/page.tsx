@@ -30,7 +30,7 @@ export default function MyTrainingPage() {
   return (
     <div className="flex flex-col space-y-8">
       <div>
-        <h1 className="text-2xl font-bold tracking-tighter">My Training</h1>
+        <h1 className="text-xl font-bold tracking-tight">My Training</h1>
         <p className="text-muted-foreground">
           Courses you are currently enrolled in.
         </p>
@@ -41,23 +41,23 @@ export default function MyTrainingPage() {
           {enrolledCourses.map((course) => {
             const progress = calculateProgress(course);
             return (
-            <Card key={course.id} className="overflow-hidden">
-              <Link href={`/courses/${course.id}`} className="block hover:bg-muted/50">
-                <CardHeader>
-                    <CardTitle className="text-base">{course.title}</CardTitle>
-                    <CardDescription>{course.modules.length} Modules</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <Progress value={progress} className="h-2 mb-2" />
-                    <div className="flex justify-between items-center">
-                        <p className="text-sm text-muted-foreground">{progress}% complete</p>
-                        <Button variant="link" size="sm" asChild>
-                           <span className="text-primary">Continue</span>
-                        </Button>
-                    </div>
-                </CardContent>
-              </Link>
-            </Card>
+            <Link key={course.id} href={`/courses/${course.id}`} className="block hover:bg-muted/50">
+                <Card className="overflow-hidden">
+                    <CardHeader>
+                        <CardTitle className="text-base">{course.title}</CardTitle>
+                        <CardDescription>{course.modules.length} Modules</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <Progress value={progress} className="h-2 mb-2" />
+                        <div className="flex justify-between items-center">
+                            <p className="text-sm text-muted-foreground">{progress}% complete</p>
+                            <Button variant="link" size="sm" asChild>
+                               <span className="text-primary">Continue</span>
+                            </Button>
+                        </div>
+                    </CardContent>
+                </Card>
+            </Link>
           )})}
         </div>
       ) : (
