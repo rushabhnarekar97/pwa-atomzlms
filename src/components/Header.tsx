@@ -12,15 +12,13 @@ import {
 import { LogOut, User } from 'lucide-react';
 import { Logo } from './Logo';
 import { ThemeToggleButton } from './ThemeToggleButton';
-import { MobileSidebar } from './MobileSidebar';
 
 export function Header() {
   return (
     <header className="sticky top-0 z-10 w-full border-b bg-background/95 backdrop-blur-sm">
       <div className="flex h-14 items-center justify-between px-4">
         <div className="flex items-center gap-2">
-          <MobileSidebar />
-          <Link href="/dashboard" className="hidden md:block">
+          <Link href="/dashboard">
             <Logo />
           </Link>
         </div>

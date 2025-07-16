@@ -1,0 +1,50 @@
+"use client";
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
+import { LayoutDashboard, Book, Compass } from 'lucide-react';
+
+const routes = [
+  {
+    href: '/dashboard',
+    label: 'Dashboard',
+    icon: LayoutDashboard,
+  },
+  {
+    href: '/dashboard/my-training',
+    label: 'My Training',
+    icon: Book,
+  },
+  {
+    href: '/dashboard/catalog',
+    label: 'Catalog',
+    icon: Compass,
+  },
+];
+
+export function BottomBar() {
+  const pathname = usePathname();
+
+  return (
+    <div className="fixed bottom-0 left-0 z-20 h-16 w-full border-t bg-background/95 backdrop-blur-sm">
+      <nav className="grid h-full grid-cols-3">
+        {routes.map((route) => (
+          <Link
+            key={route.href}
+            href={route.href}
+            className={cn(
+              'flex flex-col items-center justify-center gap-1 text-xs font-medium transition-colors',
+              pathname === route.href
+                ? 'text-primary'
+                : 'text-muted-foreground hover:text-primary'
+            )}
+          >
+            <route.icon className="h-5 w-5" />
+            <span>{route.label}</span>
+          </Link>
+        ))}
+      </nav>
+    </div>
+  );
+}
