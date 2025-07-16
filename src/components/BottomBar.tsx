@@ -25,6 +25,9 @@ const routes = [
 
 export function BottomBar() {
   const pathname = usePathname();
+  // We need to remove the basePath from the pathname to match the hrefs
+  const basePath = '/pwa-atomzlms';
+  const pathnameWithoutBasePath = pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname;
 
   return (
     <div className="absolute bottom-0 left-0 z-20 h-16 w-full overflow-hidden rounded-b-[2rem] border-t bg-background/95">
@@ -35,7 +38,7 @@ export function BottomBar() {
             href={route.href}
             className={cn(
               'flex flex-col items-center justify-center gap-1 text-xs font-medium transition-colors',
-              pathname === route.href
+              pathnameWithoutBasePath === route.href || (pathnameWithoutBasePath === '/dashboard' && route.href === '/dashboard') || (pathnameWithoutBasePath.startsWith(route.href) && route.href !== '/dashboard')
                 ? 'text-primary'
                 : 'text-muted-foreground hover:text-primary'
             )}

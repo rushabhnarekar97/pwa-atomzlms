@@ -25,7 +25,6 @@ export default function ChapterPage({ params }: { params: { courseId: string; ch
 
   if (!chapter) notFound();
 
-  // This is a placeholder for a real state management solution
   const isCompleted = chapter.completed;
 
   return (

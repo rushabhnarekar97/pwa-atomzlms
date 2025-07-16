@@ -5,8 +5,8 @@ const repo = 'pwa-atomzlms';
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/pwa-atomzlms',
-  assetPrefix: '/pwa-atomzlms/',
+  basePath: isProd ? `/${repo}` : '',
+  assetPrefix: isProd ? `/${repo}/` : '',
   typescript: {
     ignoreBuildErrors: true,
   },

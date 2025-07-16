@@ -24,23 +24,25 @@ export default function CatalogPage() {
       <div className="space-y-4">
         {courses.map((course) => (
           <Card key={course.id} className="overflow-hidden flex flex-col">
-            <div className="relative h-32 w-full">
-              <Image
-                src={course.image}
-                alt={course.title}
-                fill
-                className="object-cover"
-                data-ai-hint={
-                  course.id === 'nextjs-fundamentals'
-                    ? 'code react'
-                    : course.id === 'react-mastery'
-                    ? 'code abstract'
-                    : course.id === 'tailwind-css-design'
-                    ? 'design ui'
-                    : 'mobile web'
-                }
-              />
-            </div>
+            <Link href={`/courses/${course.id}`}>
+              <div className="relative h-32 w-full">
+                <Image
+                  src={course.image}
+                  alt={course.title}
+                  fill
+                  className="object-cover"
+                  data-ai-hint={
+                    course.id === 'nextjs-fundamentals'
+                      ? 'code react'
+                      : course.id === 'react-mastery'
+                      ? 'code abstract'
+                      : course.id === 'tailwind-css-design'
+                      ? 'design ui'
+                      : 'mobile web'
+                  }
+                />
+              </div>
+            </Link>
             <div className="flex flex-col flex-grow p-4">
               <CardHeader className="p-0">
                 <CardTitle className="text-base">
