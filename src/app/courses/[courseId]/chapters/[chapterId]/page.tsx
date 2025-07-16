@@ -38,9 +38,9 @@ export default function ChapterPage({ params }: { params: { courseId: string; ch
               </Button>
           </div>
 
-          <div className="mb-4">
-              <p className="text-xs font-semibold uppercase tracking-wider text-primary">{course.title}</p>
-              <h1 className="text-xl font-bold tracking-tight">{chapter.title}</h1>
+          <div className="mb-4 space-y-1">
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">{course.title}</p>
+              <h1 className="text-2xl font-bold tracking-tighter">{chapter.title}</h1>
           </div>
         </div>
 
@@ -55,9 +55,9 @@ export default function ChapterPage({ params }: { params: { courseId: string; ch
             ></iframe>
             </div>
         ) : (
-            <div className="prose prose-sm max-w-none prose-invert p-4">
+            <article className="prose prose-sm dark:prose-invert max-w-none p-4 prose-p:text-muted-foreground prose-headings:font-bold prose-headings:tracking-tighter">
                 <p>{chapter.content}</p>
-            </div>
+            </article>
         )}
       </div>
     </div>

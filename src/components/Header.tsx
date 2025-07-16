@@ -15,19 +15,19 @@ import { ThemeToggleButton } from './ThemeToggleButton';
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-10 w-full border-b bg-background/95 backdrop-blur-sm">
-      <div className="flex h-14 items-center justify-between px-4">
+    <header className="sticky top-0 z-10 w-full border-b bg-background/80 backdrop-blur-sm">
+      <div className="flex h-16 items-center justify-between px-4">
         <div className="flex items-center gap-2">
           <Link href="/dashboard">
             <Logo />
           </Link>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <ThemeToggleButton />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                <Avatar className="h-8 w-8">
+              <Button variant="ghost" className="relative h-9 w-9 rounded-full">
+                <Avatar className="h-9 w-9">
                   <AvatarImage src="https://placehold.co/40x40.png" alt="@user" data-ai-hint="person avatar" />
                   <AvatarFallback>U</AvatarFallback>
                 </Avatar>
