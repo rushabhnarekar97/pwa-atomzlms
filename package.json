@@ -4,9 +4,9 @@
   "homepage": "https://rushabhnarekar97.github.io/pwa-atomzlms",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack -p 9002",
+    "dev": "next dev",
     "build": "next build",
-    "predeploy": "npm run build && npm run export",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d out",
     "start": "next start",
     "lint": "next lint",
