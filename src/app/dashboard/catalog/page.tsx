@@ -11,8 +11,6 @@ import {
 import { courses } from '@/lib/data';
 import { PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { BookOpen } from 'lucide-react';
 
 export default function CatalogPage() {
   return (
@@ -45,25 +43,23 @@ export default function CatalogPage() {
                 />
               </div>
             </Link>
-            <div className="p-4 flex flex-col flex-grow">
-              <CardHeader className="p-0 mb-2">
-                <CardTitle className="text-base">
-                  <Link href={`/courses/${course.id}`} className="hover:underline">
-                    {course.title}
-                  </Link>
-                </CardTitle>
-                <CardDescription className="text-sm line-clamp-2 pt-1">
-                  {course.description}
-                </CardDescription>
-              </CardHeader>
-              <div className="flex-grow" />
-              <div className="mt-4">
-                <Button className="w-full">
-                  <PlusCircle className="mr-2 h-4 w-4" />
-                  Enroll
-                </Button>
-              </div>
-            </div>
+            <CardHeader>
+              <CardTitle className="text-base">
+                <Link href={`/courses/${course.id}`} className="hover:underline">
+                  {course.title}
+                </Link>
+              </CardTitle>
+              <CardDescription className="text-sm line-clamp-2 pt-1">
+                {course.description}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex-grow" />
+            <CardFooter>
+              <Button className="w-full">
+                <PlusCircle className="mr-2 h-4 w-4" />
+                Enroll
+              </Button>
+            </CardFooter>
           </Card>
         ))}
       </div>

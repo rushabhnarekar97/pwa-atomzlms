@@ -42,6 +42,7 @@ export default function MyTrainingPage() {
             const progress = calculateProgress(course);
             return (
             <Card key={course.id} className="overflow-hidden">
+              <Link href={`/courses/${course.id}`} className="block hover:bg-muted/50">
                 <CardHeader>
                     <CardTitle className="text-base">{course.title}</CardTitle>
                     <CardDescription>{course.modules.length} Modules</CardDescription>
@@ -50,11 +51,12 @@ export default function MyTrainingPage() {
                     <Progress value={progress} className="h-2 mb-2" />
                     <div className="flex justify-between items-center">
                         <p className="text-sm text-muted-foreground">{progress}% complete</p>
-                        <Button asChild size="sm">
-                            <Link href={`/courses/${course.id}`}>Continue</Link>
+                        <Button variant="link" size="sm" asChild>
+                           <span className="text-primary">Continue</span>
                         </Button>
                     </div>
                 </CardContent>
+              </Link>
             </Card>
           )})}
         </div>
