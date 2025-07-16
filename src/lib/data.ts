@@ -18,6 +18,7 @@ export interface Course {
   description: string;
   image: string;
   modules: Module[];
+  enrolled: boolean;
 }
 
 export const courses: Course[] = [
@@ -26,6 +27,7 @@ export const courses: Course[] = [
     title: 'Next.js Fundamentals',
     description: 'Learn the basics of Next.js, from routing to data fetching.',
     image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=870&auto=format&fit=crop',
+    enrolled: true,
     modules: [
       {
         id: 'm1',
@@ -59,6 +61,7 @@ export const courses: Course[] = [
     title: 'React Mastery',
     description: 'Become a pro in React with hooks, state management, and more.',
     image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=870&auto=format&fit=crop',
+    enrolled: true,
     modules: [
       {
         id: 'm1',
@@ -84,6 +87,7 @@ export const courses: Course[] = [
     title: 'Responsive Design with Tailwind',
     description: 'Master responsive web design using Tailwind CSS utility classes.',
     image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=870&auto=format&fit=crop',
+    enrolled: false,
     modules: [
       {
         id: 'm1',
@@ -107,6 +111,7 @@ export const courses: Course[] = [
     title: 'PWA Essentials',
     description: 'Build Progressive Web Apps that are fast, reliable, and engaging.',
     image: 'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?q=80&w=870&auto=format&fit=crop',
+    enrolled: false,
     modules: [
       {
         id: 'm1',
