@@ -29,24 +29,26 @@ export function BottomBar() {
   const pathnameWithoutBasePath = pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname;
 
   return (
-    <div className="absolute bottom-0 left-0 z-20 h-16 w-full overflow-hidden rounded-b-[2rem] border-t bg-background/95">
-      <nav className="grid h-full grid-cols-3">
-        {routes.map((route) => (
-          <Link
-            key={route.href}
-            href={basePath + route.href}
-            className={cn(
-              'flex flex-col items-center justify-center gap-1 text-xs font-medium transition-colors',
-              pathnameWithoutBasePath === route.href || (pathnameWithoutBasePath === '/dashboard' && route.href === '/dashboard') || (pathnameWithoutBasePath.startsWith(route.href) && route.href !== '/dashboard')
-                ? 'text-primary'
-                : 'text-muted-foreground hover:text-primary'
-            )}
-          >
-            <route.icon className="h-5 w-5" />
-            <span>{route.label}</span>
-          </Link>
-        ))}
-      </nav>
+    <div className="fixed bottom-0 left-0 z-20 h-16 w-full border-t bg-background/95">
+       <div className="mx-auto h-full max-w-md">
+        <nav className="grid h-full grid-cols-3">
+            {routes.map((route) => (
+            <Link
+                key={route.href}
+                href={basePath + route.href}
+                className={cn(
+                'flex flex-col items-center justify-center gap-1 text-xs font-medium transition-colors',
+                (pathnameWithoutBasePath === route.href || (route.href !== '/dashboard' && pathnameWithoutBasePath.startsWith(route.href)))
+                    ? 'text-primary'
+                    : 'text-muted-foreground hover:text-primary'
+                )}
+            >
+                <route.icon className="h-5 w-5" />
+                <span>{route.label}</span>
+            </Link>
+            ))}
+        </nav>
+      </div>
     </div>
   );
 }

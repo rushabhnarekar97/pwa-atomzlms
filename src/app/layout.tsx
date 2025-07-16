@@ -1,5 +1,4 @@
 "use client"
-import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from '@/lib/utils';
@@ -23,26 +22,21 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0A0A0A" media="(prefers-color-scheme: dark)" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className="font-body antialiased bg-muted/30 dark:bg-black flex items-center justify-center min-h-screen p-4">
+      <body className="font-body antialiased bg-muted/30 dark:bg-black">
         <ThemeProvider
             attribute="class"
             defaultTheme="light"
             enableSystem
             disableTransitionOnChange
         >
-            <div className="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[812px] w-[375px] shadow-2xl">
-                <div className="h-[32px] w-[3px] bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-                <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-                <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-                <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-                <div className="rounded-[2rem] overflow-hidden w-full h-full bg-background">
-                    <main className={cn("h-full w-full overflow-y-auto no-scrollbar", showBottomBar && 'pb-16')}>
-                        {children}
-                    </main>
-                    {showBottomBar && <BottomBar />}
-                    <Toaster />
-                </div>
+            <div className="relative flex flex-col h-screen w-full max-w-md mx-auto bg-background">
+                <main className={cn("flex-1 overflow-y-auto no-scrollbar", showBottomBar && 'pb-16')}>
+                    {children}
+                </main>
+                {showBottomBar && <BottomBar />}
+                <Toaster />
             </div>
         </ThemeProvider>
       </body>
