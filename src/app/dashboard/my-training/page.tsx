@@ -41,19 +41,19 @@ export default function MyTrainingPage() {
                     }
                   />
                 </div>
-                <CardHeader>
-                    <CardTitle className="text-base">{course.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                        <div className="flex items-center gap-1.5">
-                        <BookOpen className="h-4 w-4" />
-                        <span>{course.modules.length} Modules</span>
+                <div className="flex flex-1 flex-col p-4">
+                    <CardHeader className="p-0">
+                        <CardTitle className="text-base line-clamp-2 leading-tight">{course.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-grow p-0 pt-3">
+                        <div className="mb-3 flex items-center gap-1.5 text-xs text-muted-foreground">
+                            <BookOpen className="h-4 w-4" />
+                            <span>{course.modules.length} Modules</span>
                         </div>
-                    </div>
-                    <Progress value={33} className="mt-3 h-2" />
-                    <p className="mt-1 text-xs text-muted-foreground">33% complete</p>
-                </CardContent>
+                        <Progress value={33} className="h-2" />
+                        <p className="mt-1 text-xs text-muted-foreground">33% complete</p>
+                    </CardContent>
+                </div>
               </Card>
             </Link>
           ))}

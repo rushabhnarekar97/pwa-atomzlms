@@ -43,24 +43,30 @@ export default function CatalogPage() {
                 />
               </div>
             </Link>
-            <CardHeader>
-              <CardTitle className="text-base">{course.title}</CardTitle>
-              <CardDescription className="text-xs line-clamp-2">
-                {course.description}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex-grow">
-               <Badge variant="secondary" className="flex items-center gap-1 text-xs">
-                    <BookOpen className="h-3 w-3" />
-                    {course.modules.length} Modules
-                </Badge>
-            </CardContent>
-            <CardFooter>
-                <Button className="w-full">
-                    <PlusCircle className="mr-2 h-4 w-4" />
-                    Enroll
-                </Button>
-            </CardFooter>
+            <div className="flex flex-1 flex-col p-4">
+              <CardHeader className="p-0">
+                <CardTitle className="mb-1 text-base leading-tight">
+                    <Link href={`/courses/${course.id}`} className="hover:underline">
+                        {course.title}
+                    </Link>
+                </CardTitle>
+                <CardDescription className="text-xs line-clamp-2">
+                  {course.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow p-0 pt-3">
+                <Badge variant="secondary" className="flex w-fit items-center gap-1.5 text-xs">
+                      <BookOpen className="h-3 w-3" />
+                      {course.modules.length} Modules
+                  </Badge>
+              </CardContent>
+              <CardFooter className="p-0 pt-4">
+                  <Button className="w-full">
+                      <PlusCircle className="mr-2 h-4 w-4" />
+                      Enroll
+                  </Button>
+              </CardFooter>
+            </div>
           </Card>
         ))}
       </div>
