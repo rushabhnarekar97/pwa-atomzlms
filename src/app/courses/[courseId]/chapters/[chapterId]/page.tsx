@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { courses } from '@/lib/data';
-import { ChevronLeft } from 'lucide-react';
+import { Check, ChevronLeft } from 'lucide-react';
 
 export async function generateStaticParams() {
   return courses.flatMap(course => 
@@ -24,6 +24,9 @@ export default function ChapterPage({ params }: { params: { courseId: string; ch
     .find((c) => c.id === params.chapterId);
 
   if (!chapter) notFound();
+
+  // This is a placeholder for a real state management solution
+  const isCompleted = chapter.completed;
 
   return (
     <div className="flex min-h-full flex-col">
@@ -59,6 +62,12 @@ export default function ChapterPage({ params }: { params: { courseId: string; ch
                 <p>{chapter.content}</p>
             </article>
         )}
+      </div>
+      <div className="p-4 border-t bg-background">
+          <Button className="w-full" disabled={isCompleted}>
+            <Check className="mr-2 h-4 w-4" />
+            {isCompleted ? 'Completed' : 'Mark as Complete'}
+          </Button>
       </div>
     </div>
   );

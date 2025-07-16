@@ -8,10 +8,11 @@ import {
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { courses } from '@/lib/data';
-import { BookOpen, ChevronLeft, Clock, FileText, Video } from 'lucide-react';
+import { BookOpen, CheckCircle, ChevronLeft, Clock, FileText, Video } from 'lucide-react';
 import { Header } from '@/components/Header';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
+import { Progress } from '@/components/ui/progress';
 
 export async function generateStaticParams() {
   return courses.map((course) => ({
@@ -27,6 +28,8 @@ export default function CoursePage({ params }: { params: { courseId: string } })
   }
 
   const totalChapters = course.modules.reduce((acc, module) => acc + module.chapters.length, 0);
+  const completedChapters = course.modules.reduce((acc, module) => acc + module.chapters.filter(c => c.completed).length, 0);
+  const progress = totalChapters > 0 ? Math.round((completedChapters / totalChapters) * 100) : 0;
   const totalDuration = course.modules.reduce((acc, module) => acc + module.chapters.reduce((chapAcc, chap) => chapAcc + chap.duration, 0), 0);
 
   return (
@@ -43,6 +46,11 @@ export default function CoursePage({ params }: { params: { courseId: string } })
         <div className="space-y-2 mb-6">
             <h1 className="text-2xl font-bold tracking-tighter">{course.title}</h1>
             <p className="text-muted-foreground">{course.description}</p>
+        </div>
+
+        <div className="mb-4">
+          <Progress value={progress} className="h-2" />
+          <p className="text-sm text-muted-foreground mt-2">{progress}% complete</p>
         </div>
         
         <div className="mb-6 flex items-center gap-4 text-sm">
@@ -69,7 +77,7 @@ export default function CoursePage({ params }: { params: { courseId: string } })
                       <Link href={`/courses/${course.id}/chapters/${chapter.id}`} className="block transition-colors hover:bg-background/50">
                         <div className="flex items-center justify-between p-4">
                           <div className="flex items-center gap-3">
-                            {chapter.type === 'video' ? (
+                            {chapter.completed ? <CheckCircle className="h-5 w-5 flex-shrink-0 text-green-500" /> : chapter.type === 'video' ? (
                               <Video className="h-5 w-5 flex-shrink-0 text-primary" />
                             ) : (
                               <FileText className="h-5 w-5 flex-shrink-0 text-primary" />

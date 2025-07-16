@@ -16,6 +16,20 @@ export default function DashboardPage() {
   const continueLearningCourse = courses.find((c) => c.enrolled);
   const recommendedCourses = courses.filter((c) => !c.enrolled).slice(0, 3);
 
+  const calculateProgress = (course: (typeof courses)[0]) => {
+    const totalChapters = course.modules.reduce(
+      (acc, module) => acc + module.chapters.length,
+      0
+    );
+    if (totalChapters === 0) return 0;
+    const completedChapters = course.modules.reduce(
+      (acc, module) =>
+        acc + module.chapters.filter((chapter) => chapter.completed).length,
+      0
+    );
+    return Math.round((completedChapters / totalChapters) * 100);
+  };
+
   return (
     <div className="flex flex-col space-y-8">
       <div>
@@ -40,9 +54,9 @@ export default function DashboardPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Progress value={33} className="h-2" />
+                <Progress value={calculateProgress(continueLearningCourse)} className="h-2" />
                 <p className="mt-2 text-sm text-muted-foreground">
-                  33% complete
+                  {calculateProgress(continueLearningCourse)}% complete
                 </p>
               </CardContent>
             </Card>
@@ -65,6 +79,7 @@ export default function DashboardPage() {
                       alt={course.title}
                       fill
                       className="object-cover"
+                      data-ai-hint={course.id.split('-')[0] + ' ' + course.id.split('-')[1]}
                     />
                   </div>
                   <div className="ml-4 flex-grow">
