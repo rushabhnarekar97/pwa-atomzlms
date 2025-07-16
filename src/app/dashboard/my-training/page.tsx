@@ -3,13 +3,10 @@ import Image from 'next/image';
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
 import { courses } from '@/lib/data';
-import { Badge } from '@/components/ui/badge';
 import { BookOpen } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
@@ -62,17 +59,17 @@ export default function MyTrainingPage() {
           ))}
         </div>
       ) : (
-        <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
-          <div className="flex flex-col items-center gap-1 text-center">
-            <h3 className="text-2xl font-bold tracking-tight">
-              You have no enrolled courses
+        <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm h-96">
+          <div className="flex flex-col items-center gap-2 text-center">
+            <h3 className="text-lg font-bold tracking-tight">
+              You haven't enrolled in any courses
             </h3>
             <p className="text-sm text-muted-foreground">
-              Visit the catalog to enroll in your first course.
+              Visit the catalog to find your next learning adventure.
             </p>
-            <Link href="/dashboard/catalog">
-              <Button className="mt-4">Browse Catalog</Button>
-            </Link>
+            <Button asChild className="mt-4">
+              <Link href="/dashboard/catalog">Browse Catalog</Link>
+            </Button>
           </div>
         </div>
       )}
