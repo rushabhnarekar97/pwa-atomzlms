@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { LayoutDashboard, Book, Compass } from 'lucide-react';
+import { LayoutDashboard, Book, User } from 'lucide-react';
 
 const routes = [
   {
@@ -17,16 +17,15 @@ const routes = [
     icon: Book,
   },
   {
-    href: '/dashboard/catalog',
-    label: 'Catalog',
-    icon: Compass,
+    href: '/dashboard/profile',
+    label: 'Profile',
+    icon: User,
   },
 ];
 
 export function BottomBar() {
   const pathname = usePathname();
-  // We need to remove the basePath from the pathname to match the hrefs
-  const basePath = '/pwa-atomzlms';
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   const pathnameWithoutBasePath = pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname;
 
   return (
@@ -35,7 +34,7 @@ export function BottomBar() {
         {routes.map((route) => (
           <Link
             key={route.href}
-            href={route.href}
+            href={basePath + route.href}
             className={cn(
               'flex flex-col items-center justify-center gap-1 text-xs font-medium transition-colors',
               pathnameWithoutBasePath === route.href || (pathnameWithoutBasePath === '/dashboard' && route.href === '/dashboard') || (pathnameWithoutBasePath.startsWith(route.href) && route.href !== '/dashboard')
