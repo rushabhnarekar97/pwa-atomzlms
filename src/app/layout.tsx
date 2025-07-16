@@ -1,20 +1,20 @@
+"use client"
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/ThemeProvider';
-
-export const metadata: Metadata = {
-  title: 'ATOMZLMS',
-  description: 'Your personal learning co-pilot.',
-  manifest: "/manifest.json",
-};
+import { BottomBar } from '@/components/BottomBar';
+import { usePathname } from 'next/navigation';
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const showBottomBar = pathname.startsWith('/dashboard');
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -37,9 +37,10 @@ export default function RootLayout({
                 <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
                 <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
                 <div className="rounded-[2rem] overflow-hidden w-full h-full bg-background">
-                    <main className={cn("h-full w-full overflow-y-auto no-scrollbar")}>
+                    <main className={cn("h-full w-full overflow-y-auto no-scrollbar", showBottomBar && 'pb-16')}>
                         {children}
                     </main>
+                    {showBottomBar && <BottomBar />}
                     <Toaster />
                 </div>
             </div>
