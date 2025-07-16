@@ -12,6 +12,7 @@ import { courses } from '@/lib/data';
 import { Badge } from '@/components/ui/badge';
 import { BookOpen } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
+import { Button } from '@/components/ui/button';
 
 export default function MyTrainingPage() {
   const enrolledCourses = courses.filter((course) => course.enrolled);
