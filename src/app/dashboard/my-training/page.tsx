@@ -16,7 +16,7 @@ export default function MyTrainingPage() {
   return (
     <div className="flex flex-col space-y-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tighter">My Training</h1>
+        <h1 className="text-2xl font-bold tracking-tighter">My Training</h1>
         <p className="text-muted-foreground">
           Courses you are currently enrolled in.
         </p>
@@ -27,7 +27,7 @@ export default function MyTrainingPage() {
           {enrolledCourses.map((course) => (
             <Card key={course.id} className="overflow-hidden">
                 <CardHeader>
-                    <CardTitle className="text-lg">{course.title}</CardTitle>
+                    <CardTitle className="text-base">{course.title}</CardTitle>
                     <CardDescription>{course.modules.length} Modules</CardDescription>
                 </CardHeader>
                 <CardContent>

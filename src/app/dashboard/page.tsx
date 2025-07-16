@@ -19,7 +19,7 @@ export default function DashboardPage() {
   return (
     <div className="flex flex-col space-y-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tighter">Hello User!</h1>
+        <h1 className="text-2xl font-bold tracking-tighter">Hello User!</h1>
         <p className="text-muted-foreground">
           Let&apos;s continue where you left off.
         </p>
@@ -27,13 +27,13 @@ export default function DashboardPage() {
 
       {continueLearningCourse && (
         <div>
-          <h2 className="mb-4 text-xl font-bold tracking-tight">
+          <h2 className="mb-4 text-lg font-bold tracking-tight">
             Continue Learning
           </h2>
           <Link href={`/courses/${continueLearningCourse.id}`} className="block">
             <Card className="overflow-hidden border-2 border-primary/50 shadow-none transition-all hover:border-primary">
               <CardHeader>
-                <CardTitle>{continueLearningCourse.title}</CardTitle>
+                <CardTitle className="text-base">{continueLearningCourse.title}</CardTitle>
                 <CardDescription className="flex items-center gap-2 text-xs">
                   <BookOpen className="h-3 w-3" />
                   <span>{continueLearningCourse.modules.length} Modules</span>
@@ -51,7 +51,7 @@ export default function DashboardPage() {
       )}
 
       <div>
-        <h2 className="mb-4 text-xl font-bold tracking-tight">
+        <h2 className="mb-4 text-lg font-bold tracking-tight">
           Recommended For You
         </h2>
         <div className="space-y-3">
